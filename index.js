@@ -8,7 +8,7 @@ const swaggerUi = require("swagger-ui-express")
 const {swaggerDocument} = require("./swagger");
 const  swaggerJsdoc = require("swagger-jsdoc")
 
-const port = process.env.SERVER_PORT || 2000;
+const port = process.env.PORT || 2000;
 const specs = swaggerJsdoc(swaggerDocument);
 
 
@@ -23,7 +23,7 @@ app.use(
     swaggerUi.setup(specs)
   );
 
-  
+
   app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/client","index.html")
   })
